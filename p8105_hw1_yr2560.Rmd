@@ -78,10 +78,12 @@ mean(pull(df, character_vector))
 mean(pull(df, factor_vector))
 ```
 
-The mean can be calculated for the numeric and logical variables, but
-not for the character or factor variables. The numeric variable contains
-quantitative values so it has a meaningful mean. For the logical
-variable, R treats `TRUE` as 1 and `FALSE` as 0, so its mean represents
-the proportion of observations that are `TRUE`. Character and factor
-variables represent non-numeric information, so their means are not
-directly meaningful.
+The mean can be calculated for the numeric and logical variables, but not for the character or factor variables. The numeric variable contains quantitative values so it has a meaningful mean. For the logical variable, R treats `TRUE` as 1 and `FALSE` as 0, so its mean represents the proportion of observations that are `TRUE`. Character and factor variables represent non-numeric information, so their means are not directly meaningful.
+
+```{r, warning=FALSE, results='hide'}
+as.numeric(pull(df, sample_positive))
+as.numeric(pull(df, character_vector))
+as.numeric(pull(df, factor_vector))
+```
+
+When converting the logical variable to numeric, the value change from `TRUE` to 1 and `FALSE` to 0, which explains why the mean can be calculated. Converting the character variable to numeric produces missing values because the character strings cannot be interpreted as numbers. When converting the factor variable, it returns to the integer codes associated with its factor levels. Although the factor can therefore be converted to numbers, these numbers represent category codes rather than quantitative values, so their mean is still not meaningful.
