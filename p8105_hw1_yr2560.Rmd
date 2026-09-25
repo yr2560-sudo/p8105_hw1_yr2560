@@ -47,3 +47,41 @@ ggsave(
 )
 ```
 
+## Problem 2
+```{r}
+set.seed(8105)
+
+df =
+  tibble(
+    random_sample = rnorm(10),
+    sample_positive = random_sample > 0,
+    character_vector = c(
+      "a", "b", "c", "d", "e",
+      "f", "g", "h", "i", "j"
+    ),
+    factor_vector = factor(
+      c(
+        "A", "B", "C", "A", "B",
+        "C", "A", "B", "C", "A"
+      )
+    )
+  )
+
+df
+```
+
+Mean of each variables:
+```{r}
+mean(pull(df, random_sample))
+mean(pull(df, sample_positive))
+mean(pull(df, character_vector))
+mean(pull(df, factor_vector))
+```
+
+The mean can be calculated for the numeric and logical variables, but
+not for the character or factor variables. The numeric variable contains
+quantitative values so it has a meaningful mean. For the logical
+variable, R treats `TRUE` as 1 and `FALSE` as 0, so its mean represents
+the proportion of observations that are `TRUE`. Character and factor
+variables represent non-numeric information, so their means are not
+directly meaningful.
