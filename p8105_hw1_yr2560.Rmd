@@ -5,3 +5,16 @@ date: "2026-09-25"
 output: github_document
 ---
 
+Libraries:
+```{r}
+library(tidyverse)
+```
+
+## Problem 1
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+The `penguins` dataset contains measurements of penguins from three species: `r paste(unique(penguins$species), collapse = ",")`, observed on the islands: `r paste(na.omit(unique(penguins$island)), collapse = ",")`. Other important numeric variables include bill length, bill depth, flipper length, body mass, and year. 
+
+The dataset contains `r nrow(penguins)` observations and `r ncol(penguins)` variables. The mean flipper length is `r round(mean(penguins$flipper_length_mm, na.rm = TRUE), 2)` mm.
