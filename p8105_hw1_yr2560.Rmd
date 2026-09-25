@@ -1,0 +1,7 @@
+---
+title: "Homework 1"
+author: "Yiman Rui"
+date: "2026-09-25"
+output: github_document
+---
+
